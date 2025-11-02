@@ -1,0 +1,607 @@
+/* ========================================
+   基本設定
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   画面遷移
+   ======================================== */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.screen.active {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   タイトル・ヘッダー
+   ======================================== */
+.app-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.app-title-small {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   カード
+   ======================================== */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   市場選択
+   ======================================== */
+.market-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-card {
+    display: block;
+    cursor: pointer;
+}
+
+.radio-card input[type="radio"] {
+    display: none;
+}
+
+.radio-content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.2s;
+    background: var(--card-bg);
+}
+
+.radio-card input[type="radio"]:checked + .radio-content {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+.flag {
+    font-size: 28px;
+    margin-right: 12px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ========================================
+   マトリクス設定
+   ======================================== */
+.matrix-config {
+    margin-top: 16px;
+}
+
+.config-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.mt-3 {
+    margin-top: 24px;
+}
+
+.range-input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+    padding: 12px;
+    background: var(--bg-color);
+    border-radius: 8px;
+}
+
+.range-input-group input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.range-input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.range-separator {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.btn-remove {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-color);
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* ========================================
+   ボタン
+   ======================================== */
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s;
+    margin-top: 24px;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-settings {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-refresh {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.btn-refresh:active {
+    transform: scale(0.95);
+}
+
+.refresh-icon {
+    font-size: 16px;
+}
+
+/* ========================================
+   データ情報表示
+   ======================================== */
+.data-info {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.data-time {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.data-time .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.data-time #lastUpdate {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   現在の指標値
+   ======================================== */
+.current-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.value-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.value-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.value-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   マトリクス表示
+   ======================================== */
+.matrix-container {
+    margin-bottom: 24px;
+}
+
+.matrix-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.matrix-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    min-width: 500px;
+}
+
+.matrix-table th,
+.matrix-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.matrix-table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.matrix-table td {
+    background: white;
+}
+
+.matrix-table td.highlight {
+    background: #fef3c7;
+    font-weight: 700;
+    border: 2px solid var(--warning-color);
+}
+
+.matrix-table td input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 13px;
+    padding: 4px;
+}
+
+.matrix-table td input:focus {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+/* ========================================
+   ローディング
+   ======================================== */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-overlay p {
+    color: white;
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+/* ========================================
+   手動入力ボタン
+   ======================================== */
+.btn-manual {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.btn-manual:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   モーダル
+   ======================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.manual-input-group {
+    margin-bottom: 16px;
+}
+
+.manual-input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.manual-input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.manual-input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn-modal-cancel,
+.btn-modal-confirm {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-modal-cancel {
+    background: var(--bg-color);
+    color: var(--text-secondary);
+}
+
+.btn-modal-confirm {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-modal-cancel:active,
+.btn-modal-confirm:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   レスポンシブ対応
+   ======================================== */
+@media (max-width: 640px) {
+    .screen {
+        padding: 12px;
+    }
+
+    .app-title {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .data-info {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-refresh,
+    .btn-manual {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
