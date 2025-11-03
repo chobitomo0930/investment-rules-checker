@@ -1,24 +1,29 @@
 {
-  "name": "積み立て投資マイルール確認アプリ",
+  "name": "投資マイルール確認アプリ",
   "short_name": "投資ルール",
   "description": "VIXと為替・日経VIに基づいた投資ルールを確認するアプリ",
-  "start_url": "/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f8fafc",
   "theme_color": "#3b82f6",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": ["finance", "productivity"],
+  "screenshots": []
 }

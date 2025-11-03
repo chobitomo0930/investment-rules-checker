@@ -1,15 +1,15 @@
 // Service Worker for PWA
-const CACHE_NAME = 'investment-rules-v1';
+const CACHE_NAME = 'investment-rules-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/config.js',
-  '/js/storage.js',
-  '/js/api.js',
-  '/js/matrix.js',
-  '/js/app.js',
-  '/manifest.json'
+  './',
+  'index.html',
+  'css/style.css',
+  'js/config.js',
+  'js/storage.js',
+  'js/api.js',
+  'js/matrix.js',
+  'js/app.js',
+  'manifest.json'
 ];
 
 // インストール時にキャッシュを作成
